@@ -15,6 +15,7 @@ ul{padding-left:22px}li{margin:9px 0}
 blockquote{border-left:4px solid var(--brand);background:#fcf6f2;padding:14px 19px;margin:22px 0;font-weight:520}
 figure{margin:25px -10px 23px;padding:12px 14px 13px;background:#fff;border:1px solid var(--line);border-radius:9px}
 figure img{display:block;width:100%;height:auto;max-height:500px;object-fit:contain}
+figure img[src$="codec_tradeoff.png"]{max-height:760px}
 figcaption{color:var(--ink-soft);font-size:12.5px;line-height:1.55;padding:8px 10px 0}
 .table-scroll{overflow-x:auto;margin:23px 0;border:1px solid var(--line);border-radius:8px}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:13px;font-variant-numeric:tabular-nums}
