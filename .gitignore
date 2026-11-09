@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.tmp
+*.tmp.*
+.env
+.env.*
+.venv/
+raw_data/
+raw_results/
+*.pt
+*.safetensors
+*.npy
+*.npz
+*.bin
+*.key
+*.pem
