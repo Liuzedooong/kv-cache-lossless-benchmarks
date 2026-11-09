@@ -45,3 +45,14 @@ The initial study uses FP8 KV payload exports from Qwen and DeepSeek and compare
 We welcome feedback on codec baselines, BF16/FP8 KV layouts, lossless GPU decoder interfaces, representative public data, and fair benchmarking methodology. You can [open an issue](https://github.com/Liuzedooong/kv-cache-lossless-benchmarks/issues) or discuss interface alignment in [LMCache RFC #4498](https://github.com/LMCache/LMCache/issues/4498).
 
 This is an independent research and benchmarking effort, **not an official LMCache project**. We hope it will be useful to LMCache and other KV cache systems.
+
+## Article engagement counters
+
+The published FP8 article includes a small page-view counter and a like button at the bottom. Both use the public, no-account [Count API](https://countapi.mileshilliard.com/) service.
+
+- **Views:** One request per browser tab session (reloading the same tab does not increment again).
+- **Likes:** One like per browser profile, tracked locally using browser storage.
+- **Data limits:** Counters are public, unauthenticated and approximate; they are neither unique-visitor analytics nor protected against deliberate manipulation.
+- **Privacy:** Browsers call the counter provider over HTTPS; this site does not collect visitor identities or set tracking cookies.
+
+The counters degrade quietly if the external service is unavailable.

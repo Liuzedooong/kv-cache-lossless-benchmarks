@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Lossless Compression of FP8 KV Caches — Benchmark Study</title>
 <meta name="description" content="A reproducible FP8 KV benchmark study of codecs, page size, layer effects, and transforms."/>
-<link rel="stylesheet" href="style.css"/><link rel="canonical" href="https://liuzedooong.github.io/kv-cache-lossless-benchmarks/blog/fp8-lossless-2026/"/><meta property="og:title" content="Lossless Compression of FP8 KV Caches: What Actually Helps?"/><meta property="og:type" content="article"/><meta property="og:url" content="https://liuzedooong.github.io/kv-cache-lossless-benchmarks/blog/fp8-lossless-2026/"/></head><body>
+<link rel="stylesheet" href="style.css"/><link rel="canonical" href="https://liuzedooong.github.io/kv-cache-lossless-benchmarks/blog/fp8-lossless-2026/"/><meta property="og:title" content="Lossless Compression of FP8 KV Caches: What Actually Helps?"/><meta property="og:type" content="article"/><meta property="og:url" content="https://liuzedooong.github.io/kv-cache-lossless-benchmarks/blog/fp8-lossless-2026/"/><script src="engagement.js" defer></script></head><body>
 <header class="topbar"><span class="identity">KV CACHE SYSTEMS · RESEARCH NOTES</span><span class="chip">BENCHMARK STUDY</span></header>
 <div class="container"><main class="article"><div class="meta">FP8 REPORT · 9 NOV 2026 · LOSSLESS KV</div>
 <h1 class="article-title">Lossless Compression of FP8 KV Caches: What Actually Helps?</h1>
@@ -97,4 +97,19 @@
 <h2 id="s10">Next steps</h2>
 <p>We plan to align the benchmark with the LMCache GPU decompression record format and codec APIs, obtain independent KV traces for train/test separation, and evaluate real L2 retrieval. <strong>No additional preprocessing is being introduced for the three new baselines.</strong></p>
 <p>For coordination, see <a href="https://github.com/LMCache/LMCache/issues/4498">LMCache RFC #4498</a> and the Zstd/portable-record interface discussions in <a href="https://github.com/LMCache/LMCache/pull/5479">#5479</a> and <a href="https://github.com/LMCache/LMCache/pull/5480">#5480</a>.</p>
-<div class="footer">Benchmark study · Codec-level measurements, not production-serving latency. See the reproducibility and limitations section.</div></main><nav class="toc"><div class="toc-label">IN THIS ARTICLE</div><a href="#s1">Why this matters</a><a href="#s2">TL;DR</a><a href="#s3">Measurement protocol</a><a href="#s4">Finding 1 — Compression is sensitive to chunk size</a><a href="#s5">Finding 2 — Codec comparison: compression ratio vs. throughput</a><a href="#s6">Finding 3 — Compressibility is not uniform across layers</a><a href="#s7">Finding 4 — How much do reversible transforms really improve compression?</a><a href="#s8">Does faster GPU decoding imply faster retrieval?</a><a href="#s9">Reproducibility and limitations</a><a href="#s10">Next steps</a></nav></div></body></html>
+<div class="footer">Benchmark study · Codec-level measurements, not production-serving latency. See the reproducibility and limitations section.</div><div class="article-engagement" aria-label="Article engagement">
+  <span class="article-engagement-views" title="Approximate page views · counted once per browser tab session">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M2.25 12s3.5-6.5 9.75-6.5 9.75 6.5 9.75 6.5-3.5 6.5-9.75 6.5S2.25 12 2.25 12Z"/>
+      <circle cx="12" cy="12" r="2.8"/>
+    </svg>
+    <span id="article-view-count" aria-label="Views" aria-live="polite">—</span>
+  </span>
+  <button id="article-like-button" type="button" class="article-engagement-like" aria-pressed="false" aria-label="Like this article" title="Like this article">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M7 10V21H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Z"/>
+      <path d="M7 10l4-7a2 2 0 0 1 3.7 1.1L14 9h5.8a2 2 0 0 1 2 2.4l-1.4 7.5a2.5 2.5 0 0 1-2.5 2.1H7"/>
+    </svg>
+    <span id="article-like-count" aria-live="polite">—</span>
+  </button>
+</div></main><nav class="toc"><div class="toc-label">IN THIS ARTICLE</div><a href="#s1">Why this matters</a><a href="#s2">TL;DR</a><a href="#s3">Measurement protocol</a><a href="#s4">Finding 1 — Compression is sensitive to chunk size</a><a href="#s5">Finding 2 — Codec comparison: compression ratio vs. throughput</a><a href="#s6">Finding 3 — Compressibility is not uniform across layers</a><a href="#s7">Finding 4 — How much do reversible transforms really improve compression?</a><a href="#s8">Does faster GPU decoding imply faster retrieval?</a><a href="#s9">Reproducibility and limitations</a><a href="#s10">Next steps</a></nav></div></body></html>
