@@ -86,7 +86,7 @@ In a direct, matched **three-run comparison** on E4M3FN, Zstd-3 versus Zstd-6 GP
 
 ![E4M3FN codec throughput versus compression ratio](figures/codec_tradeoff.png)
 
-*Figure 2. **E4M3FN only.** The upper panels plot eight GPU-decodable methods for each model. Four overlapping Zstd levels share a single family callout; their **exact, unshifted** ratios and GPU throughput are listed in the dedicated strips underneath, with a local ratio scale. Gold marks the balanced Zstd-3 baseline, not a universal optimum. Brotli has no measured GPU decoder and is excluded. All GPU rates exclude H2D/D2H.*
+*Figure 2. **E4M3FN only.** The upper panels show eight GPU-decodable methods on each model. Zstd levels are grouped in the scatter and listed separately below with their exact compression ratios and GPU decode rates. **Qwen Zstd-6** is emphasized because it has a slightly higher ratio and GPU throughput than Zstd-3 in matched runs; **DeepSeek Zstd-3** has higher GPU decode throughput than Zstd-6. CPU encoding throughput remains a separate consideration when choosing a codec. Brotli has no measured GPU decoder and is excluded; transfers are excluded.*
 
 The published **FP8Lin** design in [LMCache PR #6128](https://github.com/LMCache/LMCache/pull/6128) is highly relevant to FP8 KV but is **not scored on these specific exports**: Qwen head dimension 256 and DeepSeek's shared-latent layout do not directly match the prototype's supported input layout. It would require a verified adaptation or compatible capture.
 
