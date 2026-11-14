@@ -1,58 +1,31 @@
-# Lossless KV Cache Compression Benchmarks
+# KVCompBench
 
-An open, extensible benchmarking effort for **lossless compression of LLM KV caches**. We plan to support **BF16, FP8 (E4M3FN/E5M2)**, and additional KV formats and tensor layouts, with an evaluation interface that can work with **LMCache or other KV storage and serving backends**.
+**KV Cache Compression Benchmark**
 
-**Website:** https://liuzedooong.github.io/kv-cache-lossless-benchmarks/
+KVCompBench is an extensible benchmarking project for KV cache compression in LLM serving. Our goal is to evaluate codecs under consistent data layouts, frame boundaries, correctness requirements, and performance accounting.
 
-**First technical study:** [Lossless Compression of FP8 KV Caches: What Actually Helps?](https://liuzedooong.github.io/kv-cache-lossless-benchmarks/blog/fp8-lossless-2026/)
+**We are starting with lossless compression.** The first stage focuses on a reproducible lossless benchmark for BF16 and FP8 KV data; support for additional compression approaches is future work, not a claim of current functionality.
 
-## Why this project?
+## Active development: lossless
 
-A compression ratio alone does not tell a serving system which lossless codec to use. Codec choice depends on payload format, chunk/frame geometry, encoding overhead, decoder availability, and the effective I/O path. We are building a framework to compare these factors using the same data and accounting conventions.
+The ongoing work lives in the **[KVCompBench-lossless branch](https://github.com/Liuzedooong/KVCompBench/tree/KVCompBench-lossless)**. It covers:
 
-We aim to measure:
+- Byte-exact KV reconstruction and clear treatment of auxiliary scales and metadata.
+- Compression ratio for independently decodable KV pages / chunks.
+- CPU encoding and GPU decoding throughput, with transport measured separately.
+- BF16, FP8 E4M3FN/E5M2, K/V and shared-latent KV layouts.
+- Model, layer, page-size, and preprocessing sensitivity.
 
-- **Lossless correctness:** exact restoration of raw KV bytes.
-- **Compression ratio:** counting required per-frame overhead, with transparent treatment of scales and descriptors.
-- **CPU encoding throughput:** measured in uncompressed KV GB/s, with worker count and setup scope explicit.
-- **GPU decoding throughput:** measured in uncompressed KV GB/s, distinguishing GPU-resident codec timing from host-to-device transport.
-- **Cache geometry:** attention layout, independently decodable chunk sizes, and layer/group variation.
-- **Applicability:** which codecs work for BF16, E4M3FN, E5M2, and model-specific KV layouts.
+The current public release is an **FP8 lossless compression study and its figures**; a reusable benchmark harness and full machine-readable results are still planned for release, rather than already available in this repository.
 
-## First release: FP8 benchmark research note
+**Project website:** [KVCompBench](https://liuzedooong.github.io/KVCompBench/)
 
-The initial study uses FP8 KV payload exports from Qwen and DeepSeek and compares Zstd levels, Deflate, LZ4, LZ4-HC, Snappy, and CPU-only Brotli. It also examines page-size sensitivity, layer-specific compressibility, and reversible preprocessing. The article explicitly states which benchmarks include GPU decompression and which do not.
+**First study:** [Lossless Compression of FP8 KV Caches: What Actually Helps?](https://liuzedooong.github.io/KVCompBench/blog/fp8-lossless-2026/)
 
-- [Read the study](https://liuzedooong.github.io/kv-cache-lossless-benchmarks/blog/fp8-lossless-2026/)
-- [Read the Markdown source](docs/blog/fp8-lossless-2026/article.md)
-- [Discuss lossless compression in LMCache RFC #4498](https://github.com/LMCache/LMCache/issues/4498)
+## Roadmap
 
-## Repository roadmap
+1. Establish lossless benchmark infrastructure and reproducible codec comparisons.
+2. Extend verified BF16 / FP8 results, GPU codec backends, and integration with KV storage/serving systems.
+3. Explore other KV compression approaches and relevant tradeoffs after the lossless foundation is established.
 
-| Area | Status |
-| --- | --- |
-| FP8 technical study and benchmark methodology | **Published** |
-| BF16 / FP8 benchmark harness | Planned |
-| Machine-readable full benchmark results | Planned |
-| Independent prompts / trace-based validation | Planned |
-| LMCache and other backend adapters | Planned |
-| End-to-end L2 retrieval measurements | Planned |
-
-**Scope note:** This first release includes the technical article and figures. Benchmark scripts, raw KV captures, and machine-readable full experiment results are **not yet published**. We will add them separately once their packaging and reproducibility have been reviewed.
-
-## Collaboration
-
-We welcome feedback on codec baselines, BF16/FP8 KV layouts, lossless GPU decoder interfaces, representative public data, and fair benchmarking methodology. You can [open an issue](https://github.com/Liuzedooong/kv-cache-lossless-benchmarks/issues) or discuss interface alignment in [LMCache RFC #4498](https://github.com/LMCache/LMCache/issues/4498).
-
-This is an independent research and benchmarking effort, **not an official LMCache project**. We hope it will be useful to LMCache and other KV cache systems.
-
-## Article engagement counters
-
-The published FP8 article includes a small page-view counter and a like button at the bottom. Both use the public, no-account [Count API](https://countapi.mileshilliard.com/) service.
-
-- **Views:** One request per browser tab session (reloading the same tab does not increment again).
-- **Likes:** One like per browser profile, tracked locally using browser storage.
-- **Data limits:** Counters are public, unauthenticated and approximate; they are neither unique-visitor analytics nor protected against deliberate manipulation.
-- **Privacy:** Browsers call the counter provider over HTTPS; this site does not collect visitor identities or set tracking cookies.
-
-The counters degrade quietly if the external service is unavailable.
+For feedback or collaboration, [open an issue](https://github.com/Liuzedooong/KVCompBench/issues). The project is independent and not an official LMCache release.
