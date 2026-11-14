@@ -4,7 +4,7 @@
 
 *Research note · 9 November 2026 · RTX 5090 · Qwen / DeepSeek cache exports*
 
-**Toward a shared benchmark suite.** We are planning an extensible, reproducible **lossless KV cache compression benchmark** covering **BF16, FP8 (E4M3FN/E5M2)** and additional formats. The suite is intended to work with **LMCache or other KV storage/serving backends**, helping practitioners compare codecs by compression ratio, CPU encoding cost, GPU decoding support, and real cache layout. **Suggestions, test cases and collaborations are welcome.**
+**KVCompBench: lossless first.** We are building an extensible, reproducible **lossless KV cache compression benchmark** covering **BF16, FP8 (E4M3FN/E5M2)** and additional formats. The suite is intended to work with **LMCache or other KV storage/serving backends**, helping practitioners compare codecs by compression ratio, CPU encoding cost, GPU decoding support, and real cache layout. **Suggestions, test cases and collaborations are welcome.**
 
 > **At a glance.** FP8 KV remains compressible after quantization, but its compressibility depends strongly on storage layout and chunk size. Across the tested layouts, Zstd-3 is a practical CPU-encode/GPU-decode baseline; many extra transforms cost more than they save.
 
