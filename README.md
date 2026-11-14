@@ -4,11 +4,11 @@
 
 KVCompBench is an open, extensible benchmark for KV cache compression. **We are starting with lossless compression**, building reproducible benchmarks for BF16, FP8 (E4M3FN/E5M2), and different KV layouts before expanding to other compression approaches. The evaluation workflow is intended to be adaptable to **LMCache and other KV storage/serving backends**.
 
-**Current development track:** [KVCompBench-lossless](https://github.com/Liuzedooong/KVCompBench/tree/KVCompBench-lossless). This first stage focuses on establishing lossless codec support, correctness checks, consistent compression-ratio accounting, and CPU/GPU performance measurements.
+**Current development track:** [KVCompBench-lossless](https://github.com/hpdps-group/KVCompBench/tree/KVCompBench-lossless). This first stage focuses on establishing lossless codec support, correctness checks, consistent compression-ratio accounting, and CPU/GPU performance measurements.
 
-**Website:** https://liuzedooong.github.io/KVCompBench/
+**Website:** https://hpdps-group.github.io/KVCompBench/
 
-**First technical study:** [Lossless Compression of FP8 KV Caches: What Actually Helps?](https://liuzedooong.github.io/KVCompBench/blog/fp8-lossless-2026/)
+**First technical study:** [Lossless Compression of FP8 KV Caches: What Actually Helps?](https://hpdps-group.github.io/KVCompBench/blog/fp8-lossless-2026/)
 
 ## Lossless benchmark: first priority
 
@@ -27,7 +27,7 @@ We aim to measure:
 
 The first lossless study uses FP8 KV payload exports from Qwen and DeepSeek and compares Zstd levels, Deflate, LZ4, LZ4-HC, Snappy, and CPU-only Brotli. It also examines page-size sensitivity, layer-specific compressibility, and reversible preprocessing. The article explicitly states which benchmarks include GPU decompression and which do not.
 
-- [Read the study](https://liuzedooong.github.io/KVCompBench/blog/fp8-lossless-2026/)
+- [Read the study](https://hpdps-group.github.io/KVCompBench/blog/fp8-lossless-2026/)
 - [Read the Markdown source](docs/blog/fp8-lossless-2026/article.md)
 - [Discuss lossless compression in LMCache RFC #4498](https://github.com/LMCache/LMCache/issues/4498)
 
@@ -47,7 +47,7 @@ The first lossless study uses FP8 KV payload exports from Qwen and DeepSeek and 
 
 ## Collaboration
 
-We welcome feedback on codec baselines, BF16/FP8 KV layouts, lossless GPU decoder interfaces, representative public data, and fair benchmarking methodology. You can [open an issue](https://github.com/Liuzedooong/KVCompBench/issues) or discuss interface alignment in [LMCache RFC #4498](https://github.com/LMCache/LMCache/issues/4498).
+We welcome feedback on codec baselines, BF16/FP8 KV layouts, lossless GPU decoder interfaces, representative public data, and fair benchmarking methodology. You can [open an issue](https://github.com/hpdps-group/KVCompBench/issues) or discuss interface alignment in [LMCache RFC #4498](https://github.com/LMCache/LMCache/issues/4498).
 
 This is an independent research and benchmarking effort, **not an official LMCache project**. We hope it will be useful to LMCache and other KV cache systems.
 
