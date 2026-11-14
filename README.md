@@ -8,7 +8,7 @@ KVCompBench is an extensible benchmarking project for KV cache compression in LL
 
 ## Active development: lossless
 
-The ongoing work lives in the **[KVCompBench-lossless branch](https://github.com/Liuzedooong/KVCompBench/tree/KVCompBench-lossless)**. It covers:
+The ongoing work lives in the **[KVCompBench-lossless branch](https://github.com/hpdps-group/KVCompBench/tree/KVCompBench-lossless)**. It covers:
 
 - Byte-exact KV reconstruction and clear treatment of auxiliary scales and metadata.
 - Compression ratio for independently decodable KV pages / chunks.
@@ -18,9 +18,9 @@ The ongoing work lives in the **[KVCompBench-lossless branch](https://github.com
 
 The current public release is an **FP8 lossless compression study and its figures**; a reusable benchmark harness and full machine-readable results are still planned for release, rather than already available in this repository.
 
-**Project website:** [KVCompBench](https://liuzedooong.github.io/KVCompBench/)
+**Project website:** [KVCompBench](https://hpdps-group.github.io/KVCompBench/)
 
-**First study:** [Lossless Compression of FP8 KV Caches: What Actually Helps?](https://liuzedooong.github.io/KVCompBench/blog/fp8-lossless-2026/)
+**First study:** [Lossless Compression of FP8 KV Caches: What Actually Helps?](https://hpdps-group.github.io/KVCompBench/blog/fp8-lossless-2026/)
 
 ## Roadmap
 
@@ -28,4 +28,4 @@ The current public release is an **FP8 lossless compression study and its figure
 2. Extend verified BF16 / FP8 results, GPU codec backends, and integration with KV storage/serving systems.
 3. Explore other KV compression approaches and relevant tradeoffs after the lossless foundation is established.
 
-For feedback or collaboration, [open an issue](https://github.com/Liuzedooong/KVCompBench/issues). The project is independent and not an official LMCache release.
+For feedback or collaboration, [open an issue](https://github.com/hpdps-group/KVCompBench/issues). The project is independent and not an official LMCache release.
